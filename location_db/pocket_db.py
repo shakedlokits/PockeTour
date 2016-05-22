@@ -9,7 +9,7 @@ class PocketDB:
         DB initializer, connecting to DB
         :return: self
         """
-        self._db = sqlite3.connect('database.db')
+        self._db = sqlite3.connect('/cs/hackathon/pocketour/location_db/database.db')
         self._cursor = self._db.cursor()
 
     def __enter__(self):
@@ -35,7 +35,7 @@ class PocketDB:
         """
 
         # get nearest sites
-        legal_id_list = self.get_closest_sites(current_gps)
+        legal_id_list = self._get_closest_sites(current_gps)
 
         # initialize sql query
         query = "select id,descriptors from PockeTour where "
@@ -61,6 +61,9 @@ class PocketDB:
         return id_descriptors_list
 
     def _get_closest_sites(self, current_gps, radius_km=0.2):
+
+
+        
 
         # request db for id's and GPS
         self._cursor.execute('SELECT id,gps FROM PockeTour')

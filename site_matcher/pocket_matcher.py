@@ -2,6 +2,7 @@ from skimage.color import rgb2gray
 import cv2
 import numpy as np
 from location_db.pocket_db import PocketDB
+from sklearn.neighbors import NearestNeighbors
 
 
 def match_site(path, gps):
@@ -38,12 +39,12 @@ def match_site(path, gps):
         temp_id = sites[i]['id']
 
         # number of images of this site
-        num_of_db_images_site = len(sites[i]['des'])
+        num_of_db_images_site = len(sites[i]['desc'])
         temp_score = 0
 
         # run throue the images for site
         for j in range(0, num_of_db_images_site):
-            imJdes = np.reshape(sites[i]['des'][j], (len(sites[i]['des'][j])/32, 32))
+            imJdes = np.reshape(sites[i]['desc'][j], (len(sites[i]['desc'][j])/32, 32))
             dis, indx = nn.kneighbors(imJdes, 2)
 
             # filtered_dis = filter(lambda distance: distance < np.median(dis), dis)
