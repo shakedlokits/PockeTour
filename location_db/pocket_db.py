@@ -9,7 +9,7 @@ class PocketDB:
         DB initializer, connecting to DB
         :return: self
         """
-        self._db = sqlite3.connect('/cs/hackathon/pocketour/location_db/database.db')
+        self._db = sqlite3.connect('/home/shakedl/PockeTour/location_db/database.db')
         self._cursor = self._db.cursor()
 
     def __enter__(self):
