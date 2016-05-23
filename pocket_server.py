@@ -7,7 +7,6 @@ import urllib2
 from site_matcher.pocket_matcher import match_site
 
 app = Flask(__name__)
-app.debug = True
 
 @app.route('/image', methods=['GET', 'POST'])
 def upload_file():
@@ -33,5 +32,5 @@ def testing_conn():
     return "Everything is within normal parameters captain"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='8080')
+    app.run(host='0.0.0.0', port=8080, debug=True)
 
