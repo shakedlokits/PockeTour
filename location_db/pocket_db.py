@@ -49,7 +49,8 @@ class PocketDB:
                 query += " or "
 
         # query descriptors from database
-        print "id_query: ", query
+        if len(legal_id_list) == 0:
+            print "no matching sites found"
         self._cursor.execute(query)
 
         # fetch data from database
