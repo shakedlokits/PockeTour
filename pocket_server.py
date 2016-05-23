@@ -27,5 +27,10 @@ def upload_file():
         return json_response
     return "failed to retrieve image"
 
+
+@app.route('/test', methods=['GET', 'POST'])
+def testing_conn():
+    return "Everything is within normal parameters captain"
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8080')
