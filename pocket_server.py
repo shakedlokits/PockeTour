@@ -14,14 +14,14 @@ def upload_file():
 
         # save image file
         b64_data = request.values['base64']
-        with open("/cs/hackathon/pocketour/data/input_img.jpg", "wb") as file:
+        with open("/home/shakedl/PockeTour/data/input_img.jpg", "wb") as file:
             file.write(b64_data.decode('base64'))
 
         # parse gps data
         gps = map(lambda cord: float(cord), json.loads(request.values['gps']))
 
         # fetch json response
-        json_response = match_site("/cs/hackathon/pocketour/data/input_img.jpg", gps)
+        json_response = match_site("/home/shakedl/PockeTour/data/input_img.jpg", gps)
 
         return json_response
     return "failed to retrieve image"
