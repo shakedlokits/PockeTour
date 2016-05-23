@@ -49,6 +49,7 @@ class PocketDB:
                 query += " or "
 
         # query descriptors from database
+        print "id_query: ", query
         self._cursor.execute(query)
 
         # fetch data from database
